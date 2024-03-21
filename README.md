@@ -10,4 +10,4 @@
 
 | N° | Nombre |
 | - | -
-| 1 | [Introducción a la materia](teoricas/teorica-1.pdf)
+| 1 | [Repaso + Lógica de predicados](teoricas/teorica-1.pdf)
