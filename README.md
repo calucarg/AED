@@ -4,7 +4,7 @@
 
 | N° | Enunciado | Solución |
 | - | - |-
-| 1 |[Lógica de predicados](practicas/practica-1/practica-1.pdf) | [Solución](practicas/practica-1/practica-1-solucion.md)
+| 1 |[Lógica](practicas/practica-1/practica-1.pdf) | [Solución](practicas/practica-1/practica-1-solucion.md)
 
 ## Teóricas
 
