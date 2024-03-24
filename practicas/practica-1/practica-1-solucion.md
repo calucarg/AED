@@ -225,6 +225,26 @@ Es falso ∀j
 
 Al no conocer P no se puede determinar un resultado.
 
-### 9.
+### 9.a.
 
+(∀i : Z)((0 ≤ i < 10) <span style="color:red">∧</span> P (i))
 
+Ejemplo: 
+
+Solución: (∀i : Z)((0 ≤ i < 10) <span style="color:lightgreen">→</span> P (i))
+
+### 9.b.
+
+(∃i : Z)((0 ≤ i < 10) <span style="color:red">→</span> P (i))
+
+Ejemplo: 
+
+Solución: (∃i : Z)((0 ≤ i < 10) <span style="color:lightgreen">∧</span> P (i))
+
+### 9.c.
+
+(∀x : Z)((0 ≤ x < 10) → (P (x) ∧ Q(x)))
+
+### 9.d.
+
+¬((∃x : Z)(0 ≤ x < 10 ∧ P (x))) ∧ ¬((∃x : Z)(0 ≤ x < 10 ∧ Q(x)))
