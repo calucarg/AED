@@ -227,19 +227,19 @@ Al no conocer P no se puede determinar un resultado.
 
 ### 9.a.
 
-(∀i : Z)((0 ≤ i < 10) <span style="color:red">∧</span> P (i))
+(∀i : Z)((0 ≤ i < 10) **∧** P(i))
 
-Ejemplo: 
+Ejemplo: Si tomo i = -2 ⇒ (0 ≤ i < 10) es F, si tomo P(i) F → la formula es F pero debería poder ser V ya que no hay condición para cuando no se cumple (0 ≤ i < 10).
 
-Solución: (∀i : Z)((0 ≤ i < 10) <span style="color:lightgreen">→</span> P (i))
+Solución: (∀i : Z)((0 ≤ i < 10) **⇒** P (i))
 
 ### 9.b.
 
-(∃i : Z)((0 ≤ i < 10) <span style="color:red">→</span> P (i))
+(∃i : Z)((0 ≤ i < 10) **⇒** P(i))
 
-Ejemplo: 
+Ejemplo:
 
-Solución: (∃i : Z)((0 ≤ i < 10) <span style="color:lightgreen">∧</span> P (i))
+Solución: (∃i : Z)((0 ≤ i < 10) **∧** P(i))
 
 ### 9.c.
 
