@@ -144,4 +144,45 @@ Por distributiva
 
 **Contingencia**
 
+### 5.a.
+
+| True | False | True → False | False → True |
+|------|-------|--------------|--------------|
+| V    | F     |     F        |  V           |
+
+**False es más fuerte que True**
+
+### 5.b.
+
+| p    |     q |  (p ∧ q)     | (p ∨ q)      | (p ∧ q) → (p ∨ q) | (p ∨ q) → (p ∧ q) |
+|------|-------|--------------|--------------|--------------------|-------------------|
+| V    |   V   |    V         |    V         |        V           |        V          | 
+| V    |   F   |    F         |    V         |        V           |        F          |
+| F    |   V   |    F         |    V         |        V           |        F          |
+| F    |   F   |    F         |    F         |        V           |        V          |
+
+(p ∧ q) → (p ∨ q) es tautología
+(p ∨ q) → (p ∧ q) es contingencia
+
+**(p ∧ q) es más fuerte que (p ∨ q)**
+
+### 5.c.
+
+| p   | q | (p ∧ q) | p → (p ∧ q) | (p ∧ q) → p |
+|-----|---|---------|-------------|-------------|
+| V   | V | V       |    V        |  V          |
+| V   | F | F       |    F        |  V          |
+| F   | V | F       |    V        |  V          |
+| F   | F | F       |    V        |  V          |
+
+p → (p ∧ q) es contingencia
+(p ∧ q) → p es tautología
+
+**(p ∧ q) es más fuerte que p**
+
+### 5.d.Falta subir
+
+### 5.e.Falta subir
+
+### 5.f.Falta subir
 
