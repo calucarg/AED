@@ -5,9 +5,9 @@ Para realizar el punto 3 utilicé la extensión de vscode "Fast Unicode Math Cha
 
 ## Repaso de lógica proposicional
 
-### 1.Falta subir
+### 1.Falta subir (hecho en papel)
 
-### 2.Falta subir
+### 2.Falta subir (hecho en papel)
 
 ### 3.a. qpq (p ∨ q) ∧ (p ∨ r) ≡ ¬p → (q ∧ r)
 
@@ -180,9 +180,51 @@ p → (p ∧ q) es contingencia
 
 **(p ∧ q) es más fuerte que p**
 
-### 5.d.Falta subir
+### 5.d.Falta subir (hecho en papel)
 
-### 5.e.Falta subir
+### 5.e.Falta subir (hecho en papel)
 
-### 5.f.Falta subir
+### 5.f.Falta subir (hecho en papel)
+
+### 6.Falta subir (hecho en papel)
+
+### 7.Falta subir (hecho en papel)
+
+### 8.a.
+- x ligada a ∀
+- n, y, z libres
+
+Con: n = 1, y = 2, z = 2
+
+⇒ (0 ≤ x < 1 → x + 2 = 2)
+
+Es verdadero para x ∈ {0}
+
+### 8.b.
+- x, y ligadas a ∀
+- n, m, z libres
+
+Con: n = 1, m = 1, z = 0
+
+⇒ ((0 ≤ x < 1 ∧ 0 ≤ y < 1) → 0 + 0 = 0)
+
+Es verdadero para x ∈ {0}, y ∈ {0}
+
+### 8.c.
+- j ligada a ∀
+
+⇒ (∀j : Z)(0 ≤ j < 10 → j < 0)
+
+Es falso ∀j
+
+### 8.d. 
+(∀<span style="color:orange">j</span> : Z)(j ≤ 0 → P(<span style="color:orange">j</span>)) ∧ P(<span style="color:green">j</span>)
+
+- <span style="color:orange">j</span> es ligada a ∀
+- <span style="color:green">j</span> es libre
+
+Al no conocer P no se puede determinar un resultado.
+
+### 9.
+
 
