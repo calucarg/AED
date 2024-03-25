@@ -273,17 +273,26 @@ Solución: ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x) ∧ Q(x)))
 - (∀x : Z)(P(x) → ¬((∀y : Z)(Q(x,y))))
 
 ### 12.a.
-Sea el caso mínimo (∀n : Z)((0 ≤ n < 6) → P(n)) entonces P(n) V ∀n ∈ {0,1,2,3,4,5}
+Sea el caso mínimo k = 6: (∀n : Z)((0 ≤ n < 6) → P(n)) → P(n) Verdad ∀n ∈ {0,1,2,3,4,5}
 
 ⇒ P(0) V ∧ ... ∧ P(5) V, por lo que P(3) ⊂ (k > 5 ∧ (∀n : Z)((0 ≤ n < k) → P (n)))
 
 ⇒ **k > 5 ∧ (∀n : Z)((0 ≤ n < k) → P (n)) es más fuerte que P(3)**
 
 ### 12.b.
+Sea el caso mínimo k = 6: (∃n : Z)(0 ≤ n < 6 ∧ P (n)) → se cumple para algún P(n), n ∈ {0,1,2,3,4,5}
 
+Sé que al menos para un valor, P(3), P es V.
 
-### 12.c.
+Pero P(3) no me dice si la segunda prop es V o F,
 
+entonces P(3) ̸→ ∃ P(n), n ∈ {0,1,2,3,4,5} y ∃ P(n), n ∈ {0,1,2,3,4,5} ̸→ P(3)
 
-### 12.e.
+**No hay una relación de fuerza**
+
+### 12.c.Falta subir
+
+### 12.d.Falta subir
+
+### 12.e.Falta subir
 
