@@ -252,16 +252,24 @@ Contraejemplo: (0 ≤ x < 10) V, P(x) V, Q(x) F o sea: V → (V ∧ F) y esto es
 Solución: (∀x : Z)(((0 ≤ x < 10) ∧ P(x)) → Q(x))
 
 ### 9.d.
-No hay ning´un natural menor a 10 que cumpla P y Q
+
 ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x))) ∧ ¬((∃x : Z)(0 ≤ x < 10 ∧ Q(x)))
 
 Solución: ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x) ∧ Q(x)))
 
 ### 10.
 - (∃!x : Z)((0 ≤ x < 10) ∧ P(x))
-- 
-- 
-- 
-- 
-- 
-- 
+- (∃x : Z)(∃y : Z)(((0 ≤ x < 10) V (0 ≤ y < 10)) ∧ (P(x) V P(y)))
+- (∃!x : Z)(∃!y : Z)(((0 ≤ x < 10) V (0 ≤ y < 10)) ∧ (P(x) V P(y)))
+- (∀x : Z)((x mod 2 = 0) → (P(x) ∧ ¬Q(x)))
+- (∃x : Z)(((x mod 2 ≠ 0) ∧ P(x)) → ¬Q(x))
+- (∀x : Z)(((x mod 2 = 0) ∧ P(x)) ∧ (((x mod 2 ≠ 0) ∧ ¬P(x)) → Q(x)))
+- Falta
+
+### 11.
+- (∀x : Z)(P(x) → (∃y : Z)((x ≠ y) ∧ Q(x,y)))
+- (∃x : Z)(∃y : Z)(Q(x,y) ∧ ¬P(x)∧ ¬P(y))
+- (∀x : Z)(∀y : Z)(Q(x,y) → (P(x) ∨ P(y)))
+- (∀x : Z)(P(x) → ¬((∀y : Z)(Q(x,y))))
+
+### 12.a.
