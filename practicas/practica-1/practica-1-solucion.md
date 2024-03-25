@@ -229,7 +229,7 @@ Al no conocer P no se puede determinar un resultado.
 
 (∀i : Z)((0 ≤ i < 10) **∧** P(i))
 
-Ejemplo: Si tomo i = -2 ⇒ (0 ≤ i < 10) es F, si tomo P(i) F → la formula es F pero debería poder ser V ya que no hay condición para cuando no se cumple (0 ≤ i < 10).
+Contraejemplo: Si tomo i = -2 ⇒ (0 ≤ -2 < 10) es F, si tomo P(-2) y sup q es V, el predicado es F pero debería ser V ya q cumple P
 
 Solución: (∀i : Z)((0 ≤ i < 10) **⇒** P (i))
 
@@ -237,14 +237,31 @@ Solución: (∀i : Z)((0 ≤ i < 10) **⇒** P (i))
 
 (∃i : Z)((0 ≤ i < 10) **⇒** P(i))
 
-Ejemplo:
+Contraejemplo: sup q P(i) V ↔ i > 10. y digamos que i = 7, luego (0 ≤ 7 < 10) V → P(7) F y eso es falso
+
+Se soluciona cambiando → por ∧, ya que necesito un i tal que (0 ≤ i < 10) V ∧ P(i) V
 
 Solución: (∃i : Z)((0 ≤ i < 10) **∧** P(i))
 
 ### 9.c.
 
-(∀x : Z)((0 ≤ x < 10) → (P (x) ∧ Q(x)))
+(∀x : Z)((0 ≤ x < 10) → (P(x) ∧ Q(x)))
+
+Contraejemplo: (0 ≤ x < 10) V, P(x) V, Q(x) F o sea: V → (V ∧ F) y esto es F ∴ es no cumple
+
+Solución: (∀x : Z)(((0 ≤ x < 10) ∧ P(x)) → Q(x))
 
 ### 9.d.
-
+No hay ning´un natural menor a 10 que cumpla P y Q
 ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x))) ∧ ¬((∃x : Z)(0 ≤ x < 10 ∧ Q(x)))
+
+Solución: ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x) ∧ Q(x)))
+
+### 10.
+- 
+- 
+- 
+- 
+- 
+- 
+- 
