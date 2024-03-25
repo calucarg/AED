@@ -258,7 +258,7 @@ No hay ning´un natural menor a 10 que cumpla P y Q
 Solución: ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x) ∧ Q(x)))
 
 ### 10.
-- 
+- (∃!x : Z)((0 ≤ x < 10) ∧ P(x))
 - 
 - 
 - 
