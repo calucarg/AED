@@ -273,7 +273,11 @@ Solución: ¬((∃x : Z)(0 ≤ x < 10 ∧ P (x) ∧ Q(x)))
 - (∀x : Z)(P(x) → ¬((∀y : Z)(Q(x,y))))
 
 ### 12.a.
+Sea el caso mínimo (∀n : Z)((0 ≤ n < 6) → P(n)) entonces P(n) V ∀n ∈ {0,1,2,3,4,5}
 
+⇒ P(0) V ∧ ... ∧ P(5) V, por lo que P(3) ⊂ (k > 5 ∧ (∀n : Z)((0 ≤ n < k) → P (n)))
+
+⇒ **k > 5 ∧ (∀n : Z)((0 ≤ n < k) → P (n)) es más fuerte que P(3)**
 
 ### 12.b.
 
