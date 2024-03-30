@@ -1,4 +1,4 @@
-# Introducción a la programación
+# Algoritmos y Estructuras de Datos
 
 ## Prácticas
 
