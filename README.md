@@ -1,5 +1,5 @@
 # Algoritmos y Estructuras de Datos
-
+ 
 ## Prácticas
 
 | N° | Enunciado | Solución |
