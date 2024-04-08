@@ -4,13 +4,15 @@
 
 | N° | Enunciado | Solución |
 | - | - |-
-| 1 |[Lógica](practicas/practica-1/practica-1.pdf) | [Solución](practicas/practica-1/practica-1-solucion.md)
+| 3 |[Verificación de programas](practicas/practica-3/practica-3.pdf) | [Solución](practicas/practica-3/practica-3-solucion.pdf)
 
 ## Teóricas
 
 | N° | Nombre |
 | - | -
 | 1 | [Repaso + Lógica de predicados](teoricas/teorica-1.pdf)
+| 2 | [Especificación y Contratos](teoricas/teorica-2.pdf)
+| 3 | [Correctitud](teoricas/teorica-3.pdf)
 
 ## Talleres
 
