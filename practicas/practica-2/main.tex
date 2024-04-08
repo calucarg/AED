@@ -1,0 +1,64 @@
+\documentclass[10pt,a4paper]{article}
+
+\input{AEDmacros}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{17}
+\subsection{}
+
+\begin{proc}{primosHermanos}{\Inout $l$ : \TLista{\ent}}{\TLista{\ent}}
+	
+    \requiere{todosMayoresQue2(l) \land l = L_0}
+    
+    \asegura{
+        (\forall{i} : \ent)((0 \leq i < |L_0|) \implicaLuego
+        |l|=|L_0| \land esPrimoHermano(l[i],L_0[i])}
+    
+    \vspace{0.3cm}
+    
+    \pred{todosMayoresQue2}{$l$ :\TLista{\ent}}{
+        (\forall{i} : \ent)(0 \leq i < |l| \implicaLuego l[i] \geq 2)}    
+    
+    \pred{esPrimo}{$p$ : \ent}{\neg((\exists{n} : \ent)(1 < n \leq \sqrt{p} \land p\%n = 0))}
+    
+    \pred{esPrimoHermano}{$p$ : \ent, $m$ : \ent}{
+        (m < p) \land esPrimo(m) \land (\neg(\exists{j} : \ent)(m \neq j \land j < m \land esPrimo(j)))}
+
+\end{proc}
+
+\subsection{}
+
+\begin{proc}{reemplazar}{\Inout $l$ : \TLista{$Char$}, \In a,b : Char}{\TLista{$Char$}}
+    
+    \requiere{l = L_0}
+
+    \asegura{(\forall{i} : $Char$)(0 \leq i < |L_0|) \implicaLuego 
+        (\IfThenElse{ L_0[i]=a}{l[i]=b}{l[i]=L_0[i]})}
+    \asegura{|l|=|L_0|}
+    
+\end{proc}
+
+\subsection{}
+
+\begin{proc}{limpiarDuplicados}{\Inout $l$ \TLista{$Char$}, out dup : \TLista{$Char$}}{}
+
+    \requiere{l = L_0}
+
+    %\asegura{(\IfThenElse{head(L_0) \in tail(L_0)}{l=$limpiarDuplicados$(tail(L_0))}{l = head(L_0)+ $limpiarDuplicados$(tail(L_0))})}
+
+    \asegura{(\forall{k}: $Char$)(k \in L_0 \land apariciones(k, L_0) \leq 1) \Longleftrightarrow \neg(k \in dup)}
+
+    \asegura{k \in L_0 \implicaLuego apariciones(k, L_0)-1 = apariciones(k,dup)}
+
+    \asegura{|l| = |L_0|-|dup|)}
+
+    \asegura{(\forall{k}: $Char$)(k \in L_0 \land k \in l \implicaLuego apariciones(k, l) = 1}
+
+    \asegura{(\forall{i,j,m}: \ent)(0 \leq m \land 0 \leq i < |L_0| \land 0 \leq j < |l| \implicaLuego L_0[i+m] = l[j])}
+
+    
+\end{proc}
+
+\end{document}
