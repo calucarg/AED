@@ -125,12 +125,27 @@ TAD DobleCola<T> {
 
 	proc desencolar (inout lista : DobleCola<T>, out : T) {
 		requiere{lista = old(lista)}
+		requiere{|lista.s|>0}
 		asegura{res = old(lista).s[(|old(lista).s-1)/2]}
-		asegura{lista = eliminarCentro(old(lista).s)}
+		asegura{|lista.s| = |old(lista).s| - 1}
+		asegura{IF |old(lista).s|%2 ≠ 0 THEN sinCentroNoPar(lista.s,old(lista).s)}
+				ELSE sinCentroPar(lista.s,old(lista).s)
 	}
 
-	aux eliminarCentro (n: seq<T>) : seq<T> {
-		
+	pred sinCentroNoPar (n: seq<T>, m: seq<T>) {
+		(∀ k : Z)(0 ≤ k < (|m|)/2 ⟶L n[k] = m[k] ∧ n[|n|-k-1] = m[|m|-k-1])
 	}
 
+	pred sinCentroPar (n: seq<T>, m: seq<T>) {
+		(∀ k : Z)(0 ≤ k < (|n|)/2 ⟶L n[k] = m[k]) ∧
+		(∀ j : Z)(0 ≤ j < ((|n|)-1)/2 ⟶L n[|n|-j-1] = m[|m|-j-1])
+	}
+}
+
+
+Ejercicio 4. Especifique el TAD DiccionarioConHistoria. El mismo guarda, para cada clave, todos los valores que se
+asociaron con la misma a lo largo del tiempo (en orden).
+
+TaD DiccionarioConHistoria {
+	
 }
