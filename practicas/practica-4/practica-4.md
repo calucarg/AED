@@ -143,9 +143,106 @@ TAD DobleCola<T> {
 }
 
 
-Ejercicio 4. Especifique el TAD DiccionarioConHistoria. El mismo guarda, para cada clave, todos los valores que se
-asociaron con la misma a lo largo del tiempo (en orden).
+Ejercicio 6. Especifique los TADs indicados a continuacion pero utilizando los observadores propuestos:
+a) Diccionario<K,V> observado con conjunto (de tuplas)
+b) Conjunto<T> observado con funciones
+c) Pila<T> observado con diccionarios
+d) Punto observado con coordenadas polares
 
-TaD DiccionarioConHistoria {
+a.
+
+TAD Diccionario<K,V> {
+	obs data : conj<Tupla<KxV>>
+
+	pred hayClave (d: Diccionario<K,V>, k: K){
+		(∃<x,y>:<KxV>)(<x,y> ∈ d.data ∧ k = x)}
+
+	proc diccionarioVacío(): Diccionario<K,V>
+		asegura{res.data = {} }
+
+	proc está(in d: Diccionario<K,V>, in k: K): bool
+		asegura{res = True ⟷ hayClave(d,k)}
+
+	proc definir(inout d: Diccionario<K,V>, in k: K, in v: V)
+		requiere{d = old(d)}
+		asegura{IF (∃<x,y>:<KxV>)(<x,y> ∈ old(d).data ∧ k = x) THEN d.data = (old(d).data - {<x,y>}) ∪ {<k,v>} 
+				ELSE d.data = old(d).data ∪ {<k,v>} }
 	
+	proc obtener(in d: Diccionario<K,V>, in k: K): V
+		requiere{hayClave(d,k)}
+		asegura{(∃m:<KxV>)(m ∈ d.data ∧L (k = m1 ∧ res = m2))}
+
+	proc borrar(inout d: Diccionario<K,V>, in k: K)
+		requiere{hayClave(d,k)}
+		requiere{d = old(d)}
+		asegura{(∃m:<KxV>)(m ∈ old(d).data ∧L k = m1 ∧ d.data = old(d) - {m} )}
+
+	proc definirRapido(inout d: Diccionario<K,V>, in k: K, in v: V)
+		requiere{d = old(d)}
+		requiere{¬(hayClave(old(d),k))}
+		asegura{d.data = old(d).data ∪ {<k,v>} }
+
+	proc tamaño(in d: Diccionario<K,V>): Z
+		asegura{res = |d.data|}	
+}
+
+7.
+a) Multiconjunto<T>
+Tambi´en conocido como multiset o bag. Es igual a un conjunto pero con duplicados: cada elemento puede agregarse
+m´ultiples veces. Tiene las mismas operaciones que el TAD Conjunto, m´as una operaci´on que indica la multiplicidad de
+un elemento (la cantidad de veces que ese elemento se encuentra en la estructura). N´otese que si un elemento es eliminado
+del multiconjunto, se reduce en 1 la multiplicidad
+
+TAD Multiconjunto<T> {
+	obs elems: Dict<K,Z>
+
+	pred existe(e : T, d: Dict<K,Z>) {e ∈ d}
+
+	proc conjVacio(): Multiconjunto<T> {
+		asegura{res.elems = {} }
+	}
+
+	proc pertenece(in c: Multiconjunto<T>, in e: T): bool {
+		asegura{res = true ⟷ e ∈ c.elems}
+	}
+
+	proc agregar(inout c: Multiconjunto<T>, in e: T) {
+		requiere{c=old(c)}
+		asegura{IF existe(e, old(c).elems) THEN c.elems = setKey(old(c).elems,e,old(c).elems[e] + 1)
+				ELSE setKey(old(c).elems,e,1)}
+	}
+
+	proc sacar(inout c: Multiconjunto<T>, in e: T) {
+		requiere{c=old(c)}
+		asegura{IF existe(e, old(c).elems) THEN c.elems = delKey(old(c).elems,e)
+				ELSE c.elems = old(c).elems}
+	}
+
+	proc unir(inout c: Multiconjunto<T>, in c′: Multiconjunto<T>) {
+		requiere{c = old(c)}
+		asegura{(∀k:K)(k ∈ c.elems ⟷ k ∈ old(c).elems ∨ k ∈ c')}
+		asegura{(∀k:K)(IF k ∈ old(c).elems ∧ k ∈ c' THEN c.elems[k]=old(c).elems[k]+c'[k])}
+		asegura{(∀k:K)(IF k ∈ old(c).elems ∧ ¬(k ∈ c') THEN c.elems[k]=old(c).elems[k])
+		asegura{(∀k:K)(IF ¬(k ∈ old(c).elems) ∧ k ∈ c' THEN c'[k])
+		}
+	}
+
+	proc restar(inout c: Multiconjunto<T>, in c′: Multiconjunto<T>) {
+		requiere{c = old(c)}
+		asegura{(∀k:K)(k ∈ c.elems ⟷ k∈old(c).elems ∧ k∈c' ∧L (old(c).elems[k]-c'[k])>0)}
+		asegura{(∀k:K)(IF k∈old(c).elems ∧ k∈c' ∧L (old(c).elems[k]-c'[k])>0 THEN c.elems[k] = (old(c).elems[k]-c'[k]))}
+	}
+
+	proc intersecar(inout c: Multiconjunto<T>, in c′: Multiconjunto<T>)
+		requiere{c = old(c)}
+		asegura{}
+
+	proc agregarRapido(inout c: Multiconjunto<T>, in e: T)
+
+	proc tamaño(in c: Multiconjunto<T>): Z
+
+
+	proc multiplicidad(in c: Multiconjunto<T>): Z {
+
+	}
 }
