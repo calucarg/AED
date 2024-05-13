@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArregloRedimensionableDeRecordatorios.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">labo2</a> &gt; <a href="index.source.html" class="el_package">aed</a> &gt; <span class="el_source">ArregloRedimensionableDeRecordatorios.java</span></div><h1>ArregloRedimensionableDeRecordatorios.java</h1><pre class="source lang-java linenums">package aed;
+
+class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios {
+
+<span class="fc" id="L5">    private Recordatorio[] _array = new Recordatorio[0];</span>
+
+<span class="fc" id="L7">    public ArregloRedimensionableDeRecordatorios() {</span>
+<span class="fc" id="L8">    }</span>
+
+<span class="fc" id="L10">    public ArregloRedimensionableDeRecordatorios(ArregloRedimensionableDeRecordatorios vector) {</span>
+<span class="fc" id="L11">        _array = vector._array;</span>
+<span class="fc" id="L12">    }</span>
+
+    public int longitud() {
+<span class="fc" id="L15">        return _array.length;</span>
+    }
+
+    public void agregarAtras(Recordatorio i) {
+<span class="fc" id="L19">        Recordatorio[] nuevoArray = new Recordatorio[longitud()+1];</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        for (int j = 0; j &lt; longitud(); j++) {</span>
+<span class="fc" id="L21">            nuevoArray[j] = _array[j];</span>
+        }
+<span class="fc" id="L23">        nuevoArray[longitud()] = i;</span>
+<span class="fc" id="L24">        _array = nuevoArray;</span>
+<span class="fc" id="L25">    }</span>
+
+    public Recordatorio obtener(int i) {
+<span class="fc" id="L28">        return _array[i];</span>
+    }
+
+    public void quitarAtras() {
+<span class="fc" id="L32">        Recordatorio[] nuevoArray = new Recordatorio[longitud()-1];</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (int i = 0; i &lt; longitud()-1; i++) {</span>
+<span class="fc" id="L34">            nuevoArray[i] = _array[i];</span>
+        }
+<span class="fc" id="L36">        _array = nuevoArray;</span>
+<span class="fc" id="L37">    }</span>
+
+    public void modificarPosicion(int indice, Recordatorio valor) {
+<span class="fc" id="L40">        Recordatorio[] nuevoArray = new Recordatorio[longitud()];</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 0; i &lt; longitud(); i++) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            if (i == indice) {</span>
+<span class="fc" id="L43">                nuevoArray[i] = valor;</span>
+            } else {
+<span class="fc" id="L45">                nuevoArray[i] = _array[i];</span>
+            }
+        }
+<span class="fc" id="L48">        _array = nuevoArray;</span>
+
+<span class="fc" id="L50">    }</span>
+
+    public ArregloRedimensionableDeRecordatorios copiar() {
+<span class="fc" id="L53">        return new ArregloRedimensionableDeRecordatorios(this);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
