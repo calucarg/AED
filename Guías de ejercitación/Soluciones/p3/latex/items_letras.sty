@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{items_letras}[indice arabico]
+
+\RequirePackage{titlesec}
+
+\renewcommand{\thesubsection}{Ejercicio \arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}
+
+\titleformat{\subsection}[hang]{\normalfont\bfseries}{Ejercicio \arabic{subsection}.}{0.5em}{}
+\titleformat{\subsubsection}[hang]{\normalfont}{\alph{subsubsection}.}{0.5em}{}
+
+\titleformat{name=\section}[block]
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\endinput

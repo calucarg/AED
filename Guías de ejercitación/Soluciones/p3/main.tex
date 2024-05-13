@@ -1,0 +1,120 @@
+\documentclass[fleqn,10pt,a4paper]{article}
+
+\input{AEDmacros}
+\usepackage{caratula}
+\usepackage{items_letras}
+\usepackage{amsmath}
+
+\titulo{Gui\'a pra\'ctica 3}
+\subtitulo{Verificaci\'on de programas}
+
+\graphicspath{{../static/}}
+
+\begin{document}
+
+%Carátula
+\maketitletxtlogo
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+\section{Precondición más débil en SmallLang}
+\subsection{}%1
+\subsubsection{}%a
+
+\begin{align*}
+def(a + 1) &\equiv def(a)\\
+           &\equiv \text{True} \\
+\end{align*}
+\subsubsection{}%b
+
+\begin{align*}
+def(a / b) &\equiv def(a) \land (def(b) \yLuego y \neq 0)\\
+           &\equiv \text{True} \land (\text{True} \yLuego y \neq 0) \\
+           &\equiv \text{True} \land y \neq 0 \\
+           &\equiv y \neq 0
+\end{align*}
+
+\subsubsection{}%c
+
+\begin{align*}
+def(\sqrt{a/b}) &\equiv (def(a) \land def(b)) \yLuego (b \neq 0 \land a/b \geq 0) \\
+                &\equiv \text{True} \yLuego (b \neq 0 \land a/b \geq 0) \\
+                &\equiv b \neq 0 \land a/b \geq 0 \\
+                &\equiv b \neq 0 \land ((a \geq 0 \land b \geq 0) \lor (a \leq 0 \land b \leq 0)) \\
+                &\equiv (a \geq 0 \land b > 0) \lor (a \leq 0 \land b < 0)
+\end{align*}
+
+\subsubsection{}%d
+
+\begin{align*}
+def(A[i] + 1) &\equiv def(A) \land def(i) \yLuego 0 \leq i < |A|\\
+              &\equiv 0 \leq i < |A|
+\end{align*}
+
+\subsubsection{}%e
+
+\begin{align*}
+def(A[i + 2]) &\equiv (def(A) \land def(i+2)) \yLuego 0 \leq i+2 < |A| \\
+              &\equiv 0 \leq i+2 < |A| \\
+              &\equiv -2 \leq i < |A|-2
+\end{align*}
+
+\subsubsection{}%f
+
+\begin{align*}
+def(0 \leq i \leq |A| \yLuego A[i] \geq 0) &\equiv ? \\
+\end{align*}
+
+\subsection{}%2
+\subsubsection{}%a
+
+\begin{align*}
+wp(\textbf{a := a+1; b := a/2}, b \geq 0) &\equiv wp(def(a+1),wp(a/2, b\geq 0))\\
+                                &|\textbf{a := a+1; b := a/2}\\
+                                          &\equiv 
+\end{align*}
+
+\subsubsection{}%b
+
+\begin{align*}
+wp(\textbf{a := A[i] + 1; b := a*a}, b \neq 2) &\equiv \\
+                                      &\equiv 
+\end{align*}
+
+\subsubsection{}%c
+
+\begin{align*}
+wp(\textbf{a := A[i] + 1; a := b*b}, a \geq 0) &\equiv \\
+                                      &\equiv 
+\end{align*}
+
+\subsubsection{}%d
+
+\begin{align*}
+wp(\textbf{a := a-b; b := a+b}, a \geq 0 \land b \geq 0) &\equiv \\
+                                      &\equiv 
+\end{align*}
+
+\subsection{}%3
+\subsubsection{}%a
+\subsubsection{}%b
+\subsubsection{}%c
+\subsection{}%4
+\subsubsection{}%a
+\subsubsection{}%b
+\subsubsection{}%c
+\subsubsection{}%d
+\subsection{}%5
+\subsubsection{}%a
+\subsubsection{}%b
+\subsubsection{}%c
+\subsection{}%6
+\subsubsection{}%a
+\subsubsection{}%b
+\subsubsection{}%c
+\subsubsection{}%d
+\subsubsection{}%e
+\end{document}
