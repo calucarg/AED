@@ -143,7 +143,7 @@ class ListaEnlazadaTests {
     }
 
     @Test
-    void modificarPosición() {
+    void modificarPosicion() {
         ListaEnlazada<Integer> lista = new ListaEnlazada<>();
 
         lista.agregarAtras(42);
@@ -169,7 +169,7 @@ class ListaEnlazadaTests {
         lista.agregarAtras(43);
         lista.agregarAtras(44);
         lista.agregarAtras(45);
-
+        lista.copiar();
         ListaEnlazada<Integer> copiaDeLista = lista.copiar();
 
         assertEquals(4, copiaDeLista.longitud());

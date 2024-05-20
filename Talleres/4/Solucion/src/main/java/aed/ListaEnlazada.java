@@ -49,6 +49,7 @@ public class ListaEnlazada<T> implements Secuencia<T> {
             while (cache.siguiente != null) {
                 cache = cache.siguiente;
             }
+
             cache.siguiente = nuevoNodo;
             //cache = (1,3,2) = actual
             //nuevoNodo = (null, 2, null)
@@ -75,33 +76,88 @@ public class ListaEnlazada<T> implements Secuencia<T> {
         Nodo cache = actual;
         Nodo ant = null;
 
-        for (int j = 0; j < i; j++) {
-            ant = cache;
-            cache = cache.siguiente;
-        }
-
+        //Dado j < i ent. separo en casos
         if (i == 0) {
             actual = cache.siguiente;
         } else {
-            ant.siguiente = actual;
+            for (int j = 0; j < i; j++) {
+                ant = cache;
+                cache = cache.siguiente;
+            }
+
+            ant.siguiente = cache.siguiente;
         }
+
+        len--;
     }
 
     public void modificarPosicion(int indice, T elem) {
-        throw new UnsupportedOperationException("No implementada aun");
+        Nodo nuevo = new Nodo(elem);
+        Nodo cache = actual;
+
+        for (int j = 0; j < indice; j++) {
+            cache = cache.siguiente;
+        }
+
+        //!!! ver por qué el contrarrecíproco no funciona.
+        if (cache.anterior == null) {
+            actual = nuevo;
+        } else {
+            (cache.anterior).siguiente = nuevo;
+        }
+        
+        nuevo.anterior = cache;
+        //nuevo: (cache,nuevo,siguiente)
+        //cache: (ant,cache,siguiente)
+        nuevo.siguiente = cache.siguiente;
+        //nuevo: (cache, nuevo, siguiente)
+        //cache: (ant, cache, nuevo)
+        cache.siguiente = nuevo;
+        
     }
 
     public ListaEnlazada<T> copiar() {
-        throw new UnsupportedOperationException("No implementada aun");
+        ListaEnlazada<T> copia = new ListaEnlazada<>(null);
+        Nodo cache = actual;
+
+        while (cache != null) {
+            copia.agregarAtras(cache.elem);
+            cache = cache.siguiente;
+        }
+
+        return copia;
     }
 
     public ListaEnlazada(ListaEnlazada<T> lista) {
-        throw new UnsupportedOperationException("No implementada aun");
+        if (lista != null) {
+            ListaEnlazada<T> cache = lista.copiar();
+            actual = cache.actual;
+            len = cache.len;
+        } else {
+            actual = null;
+            len = 0;
+        }
+ 
     }
     
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("No implementada aun");
+        
+        Nodo cache = actual;
+        StringBuffer aString = new StringBuffer();
+
+        aString.append("[");
+
+        while (cache.siguiente != null) {
+            aString.append(cache.elem);
+            aString.append(", ");
+            cache = cache.siguiente;
+        }
+        //ver como implementarlo dentro del while
+        aString.append(cache.elem);
+        aString.append("]");
+
+        return aString.toString();
     }
 
     private class ListaIterador implements Iterador<T> {
