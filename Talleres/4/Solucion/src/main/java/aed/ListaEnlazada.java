@@ -161,28 +161,38 @@ public class ListaEnlazada<T> implements Secuencia<T> {
     }
 
     private class ListaIterador implements Iterador<T> {
-    	// Completar atributos privados
+        //i = iterador
+    	int i = 0;
+
+        ListaIterador(){
+            i = 0;
+        }
 
         public boolean haySiguiente() {
-	        throw new UnsupportedOperationException("No implementada aun");
+	        return i != len;
         }
         
         public boolean hayAnterior() {
-	        throw new UnsupportedOperationException("No implementada aun");
+	        return i != 0;
         }
 
         public T siguiente() {
-	        throw new UnsupportedOperationException("No implementada aun");
+            if (haySiguiente()) {
+                return obtener(i++);
+            } else {return null;}
         }
         
 
         public T anterior() {
-	        throw new UnsupportedOperationException("No implementada aun");
+            if (hayAnterior()) {
+                //decr -->L eval
+                return obtener(--i);
+            } else {return null;}
         }
     }
 
     public Iterador<T> iterador() {
-	    throw new UnsupportedOperationException("No implementada aun");
+	    return new ListaIterador();
     }
 
 }
