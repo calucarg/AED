@@ -138,3 +138,7 @@ aux cantProductosMod(d:SecuenciaImpl<tupla<Producto, Fecha, Monto>>,n:int) : int
 
 ## 6
 
+pred Abs(c:PlantaImpl,c':Planta) {
+    (∀n:alarma)(n ∈ c'.alarmas ↔ n ∈ c'.alarmas) ∧
+    
+}
